@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "scheme": "acme",
+    "orientation": "portrait",
+    "web": {
+      "bundler": "metro"
+    },
+    "name": "RecipeApp",
+    "slug": "RecipeApp"
+  }
+}
