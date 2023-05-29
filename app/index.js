@@ -12,13 +12,21 @@ import {
 import { useState } from "react";
 import { Stack } from "expo-router";
 import { COLORS } from "../constants/theme";
+import  icons  from "../constants/icons";
+import  ScrollViewHome  from "../components/scrollViews/ScrollView";
+import  ScreenHeaderBtn  from "../components/header/ScreenHeaderButton";
+import  SearchBar  from "../components/searchBar/searchBar";
 
-
+// Const
 const { StatusBarManager } = NativeModules;
 const borderBottomRadius = 0;
-const testImage1 = "../assets/icons/apple.png";
 const scrollImagePadding = 70;
 const scrollImageMargin = 30;
+
+// Lists
+
+// Logs
+// console.log(ScrollViewHome)
 
 // To prevent pain and suffering please OH PLEASE put the hooks inside the function...
 
@@ -28,7 +36,7 @@ export default function Home(){
         <SafeAreaView style={styles.safeAreaAndroid}>
 
             <Stack.Screen options={{
-                title: "Home Page",
+                title: "HOME",
                 headerTitleAlign: "center",
                 headerShadowVisible: false,
                 headerShown: true,
@@ -36,7 +44,7 @@ export default function Home(){
                     backgroundColor: COLORS.pitchBlack,
                 },
                 headerTitleStyle: {
-                    color: COLORS.light,
+                    color: COLORS.light
                 },
                 headerRight: () => (
                     <Button 
@@ -45,7 +53,8 @@ export default function Home(){
                     />
                 ),
                 headerLeft: () => (
-                    <Button 
+                    // <ScreenHeaderBtn iconUrl={icons.menu2} dimensions={"100%"}></ScreenHeaderBtn>
+                    <Button
                     title="Menu"
                     color={COLORS.pitchBlack}
                     />
@@ -55,16 +64,9 @@ export default function Home(){
             {/* Main View */}
             <ScrollView>
                 {/* Sub views */}
-
+                <SearchBar bgColor={COLORS.pitchBlack}/>
                 {/* SubView Section 1 */}
-                <View style={[styles.container, { 
-                    flex: 1, 
-                    alignItems: "center", 
-                    justifyContent: "center",
-                    backgroundColor: "black",
-                    }]}>
-                    <TextInput style={ styles.textInput } placeholder="Search For Something.."/>
-                </View>
+
 
 
                 <View style={[styles.scrollContainer, { 
@@ -89,7 +91,7 @@ export default function Home(){
                         justifyContent: "center", 
                         alignItems: "center"
                     }]}>
-                        <Text style={ styles.textLight }>Place Image Here.</Text>
+                        <Image source="../assets/images/French-Fries.jpeg"/>
 
                     </View>
                 </View>
@@ -104,56 +106,28 @@ export default function Home(){
                     {/* Use this View to see how the views encapsulated are segmented. */}
                     
                         <View style={{backgroundColor: COLORS.cream, margin: 5, alignItems: "flex-start"}}>
-                            <Text style={{ fontWeight: "bold", fontSize: 20,}}>Top Recipes</Text>
-                            <Text>These are our favourite dishes!</Text>
+                            <View>
+                                <Text style={{ fontWeight: "bold", fontSize: 20,}}>Top Recipes This Month</Text>
+                                <Text>These are our favourite dishes!</Text>
+                            </View>
 
-                            <ScrollView style={{ marginTop: 20}} horizontal={true}>
-                                <Image  style={{padding: scrollImagePadding, marginRight: scrollImageMargin}} source={require(testImage1)}/>
-                                <Image  style={{padding: scrollImagePadding, marginRight: scrollImageMargin}} source={require(testImage1)}/>
-                                <Image  style={{padding: scrollImagePadding, marginRight: scrollImageMargin}} source={require(testImage1)}/>
-                                <Image  style={{padding: scrollImagePadding, marginRight: scrollImageMargin}} source={require(testImage1)}/>
-                                <Image  style={{padding: scrollImagePadding, marginRight: scrollImageMargin}} source={require(testImage1)}/>
-                                <Image  style={{padding: scrollImagePadding, marginRight: scrollImageMargin}} source={require(testImage1)}/>
-                                <Image  style={{padding: scrollImagePadding, marginRight: scrollImageMargin}} source={require(testImage1)}/>
-                                <Image  style={{padding: scrollImagePadding, marginRight: scrollImageMargin}} source={require(testImage1)}/>
-                                <Image  style={{padding: scrollImagePadding, marginRight: scrollImageMargin}} source={require(testImage1)}/>
-                            </ScrollView>
+                            <ScrollViewHome scrollImageMargin={scrollImageMargin} scrollImagePadding={scrollImagePadding} marginTop={20}></ScrollViewHome>
 
                         </View>
 
                         <View style={{backgroundColor: COLORS.cream, margin: 5, alignItems: "flex-start"}}>
-                            <Text style={{ fontWeight: "bold", fontSize: 20,}}>Top Recipes</Text>
+                            <Text style={{ fontWeight: "bold", fontSize: 20,}}>Your Favorites</Text>
                             <Text>These are our favourite dishes!</Text>
 
-                            <ScrollView style={{ marginTop: 20}} horizontal={true}>
-                                <Image  style={{padding: scrollImagePadding, marginRight: scrollImageMargin}} source={require(testImage1)}/>
-                                <Image  style={{padding: scrollImagePadding, marginRight: scrollImageMargin}} source={require(testImage1)}/>
-                                <Image  style={{padding: scrollImagePadding, marginRight: scrollImageMargin}} source={require(testImage1)}/>
-                                <Image  style={{padding: scrollImagePadding, marginRight: scrollImageMargin}} source={require(testImage1)}/>
-                                <Image  style={{padding: scrollImagePadding, marginRight: scrollImageMargin}} source={require(testImage1)}/>
-                                <Image  style={{padding: scrollImagePadding, marginRight: scrollImageMargin}} source={require(testImage1)}/>
-                                <Image  style={{padding: scrollImagePadding, marginRight: scrollImageMargin}} source={require(testImage1)}/>
-                                <Image  style={{padding: scrollImagePadding, marginRight: scrollImageMargin}} source={require(testImage1)}/>
-                                <Image  style={{padding: scrollImagePadding, marginRight: scrollImageMargin}} source={require(testImage1)}/>
-                            </ScrollView>
+                            <ScrollViewHome scrollImageMargin={scrollImageMargin} scrollImagePadding={scrollImagePadding} marginTop={20}></ScrollViewHome>
 
                         </View>
 
                         <View style={{backgroundColor: COLORS.cream, margin: 5, alignItems: "flex-start"}}>
-                            <Text style={{ fontWeight: "bold", fontSize: 20,}}>Top Recipes</Text>
+                            <Text style={{ fontWeight: "bold", fontSize: 20,}}>Top Rated</Text>
                             <Text>These are our favourite dishes!</Text>
 
-                            <ScrollView style={{ marginTop: 20}} horizontal={true}>
-                                <Image  style={{padding: scrollImagePadding, marginRight: scrollImageMargin}} source={require(testImage1)}/>
-                                <Image  style={{padding: scrollImagePadding, marginRight: scrollImageMargin}} source={require(testImage1)}/>
-                                <Image  style={{padding: scrollImagePadding, marginRight: scrollImageMargin}} source={require(testImage1)}/>
-                                <Image  style={{padding: scrollImagePadding, marginRight: scrollImageMargin}} source={require(testImage1)}/>
-                                <Image  style={{padding: scrollImagePadding, marginRight: scrollImageMargin}} source={require(testImage1)}/>
-                                <Image  style={{padding: scrollImagePadding, marginRight: scrollImageMargin}} source={require(testImage1)}/>
-                                <Image  style={{padding: scrollImagePadding, marginRight: scrollImageMargin}} source={require(testImage1)}/>
-                                <Image  style={{padding: scrollImagePadding, marginRight: scrollImageMargin}} source={require(testImage1)}/>
-                                <Image  style={{padding: scrollImagePadding, marginRight: scrollImageMargin}} source={require(testImage1)}/>
-                            </ScrollView>
+                            <ScrollViewHome scrollImageMargin={scrollImageMargin} scrollImagePadding={scrollImagePadding} marginTop={20}></ScrollViewHome>
 
                         </View>
                     </View>
@@ -185,17 +159,6 @@ const styles = StyleSheet.create({
         // Containers for the scroll view
         flex: 1,
         backgroundColor: "teal",
-    },
-
-    textInput:{
-        backgroundColor: "white",
-        textAlign: "center",
-        fontSize: 15,
-        height: 37,
-        width: 320,
-        // Above values are determined by the app design (Refer to design team)
-        borderRadius: 10,
-        padding: 10,
     },
 
     textLight: {

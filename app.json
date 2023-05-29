@@ -6,6 +6,15 @@
       "bundler": "metro"
     },
     "name": "RecipeApp",
-    "slug": "RecipeApp"
+    "slug": "recipeapp",
+    "extra": {
+      "eas": {
+        "projectId": "7efb3658-2d97-4c2f-af00-f2524ac9328a"
+      }
+    },
+    "owner": "ikowalski",
+    "android": {
+      "package": "com.ikowalski.recipeapp"
+    }
   }
 }
