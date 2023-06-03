@@ -1,21 +1,28 @@
+// Default imports
 import { 
     StyleSheet, 
     View, 
     Text, 
     SafeAreaView, 
-    TextInput, 
     ScrollView,
     NativeModules,
     Image,
     Button,
 } from "react-native";
+
+// Component imports
+import {
+    ScreenHeaderBtn,
+    SearchBar,
+    ScrollViewHome,
+} from "../components"
+
+// 
 import { useState } from "react";
 import { Stack } from "expo-router";
 import { COLORS } from "../constants/theme";
 import  icons  from "../constants/icons";
-import  ScrollViewHome  from "../components/scrollViews/ScrollView";
-import  ScreenHeaderBtn  from "../components/header/ScreenHeaderButton";
-import  SearchBar  from "../components/searchBar/searchBar";
+
 
 // Const
 const { StatusBarManager } = NativeModules;
@@ -36,7 +43,7 @@ export default function Home(){
         <SafeAreaView style={styles.safeAreaAndroid}>
 
             <Stack.Screen options={{
-                title: "HOME",
+                title: "🏠",
                 headerTitleAlign: "center",
                 headerShadowVisible: false,
                 headerShown: true,
@@ -91,15 +98,13 @@ export default function Home(){
                         justifyContent: "center", 
                         alignItems: "center"
                     }]}>
-                        <Image source="../assets/images/French-Fries.jpeg"/>
-
                     </View>
                 </View>
                 
                 
                 {/* SubView Section 2 */}
 
-                <View style={[styles.scrollContainer, { backgroundColor: COLORS.cream, height: 2000, padding: 10}]}>
+                <View style={[styles.scrollContainer, { backgroundColor: COLORS.cream, padding: 10}]}>
                     
                     {/* Use this View to see how the views encapsulated are segmented. */}
                     <View style={[styles.scrollContainer, { backgroundColor: COLORS.cream, padding: 3, marginTop: 20}]}>
@@ -111,7 +116,7 @@ export default function Home(){
                                 <Text>These are our favourite dishes!</Text>
                             </View>
 
-                            <ScrollViewHome scrollImageMargin={scrollImageMargin} scrollImagePadding={scrollImagePadding} marginTop={20}></ScrollViewHome>
+                            <ScrollViewHome scrollImageMargin={scrollImageMargin} scrollImagePadding={scrollImagePadding} marginTop={20} imgDimensions={200}></ScrollViewHome>
 
                         </View>
 
@@ -119,7 +124,7 @@ export default function Home(){
                             <Text style={{ fontWeight: "bold", fontSize: 20,}}>Your Favorites</Text>
                             <Text>These are our favourite dishes!</Text>
 
-                            <ScrollViewHome scrollImageMargin={scrollImageMargin} scrollImagePadding={scrollImagePadding} marginTop={20}></ScrollViewHome>
+                            <ScrollViewHome scrollImageMargin={scrollImageMargin} scrollImagePadding={scrollImagePadding} marginTop={20} imgDimensions={200}></ScrollViewHome>
 
                         </View>
 
@@ -127,7 +132,7 @@ export default function Home(){
                             <Text style={{ fontWeight: "bold", fontSize: 20,}}>Top Rated</Text>
                             <Text>These are our favourite dishes!</Text>
 
-                            <ScrollViewHome scrollImageMargin={scrollImageMargin} scrollImagePadding={scrollImagePadding} marginTop={20}></ScrollViewHome>
+                            <ScrollViewHome scrollImageMargin={scrollImageMargin} scrollImagePadding={scrollImagePadding} marginTop={20} imgDimensions={200}></ScrollViewHome>
 
                         </View>
                     </View>
