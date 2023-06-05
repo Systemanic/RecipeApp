@@ -8,6 +8,7 @@ import {
     NativeModules,
     Image,
     Button,
+    Alert,
 } from "react-native";
 
 // Component imports
@@ -63,7 +64,8 @@ export default function Home(){
                     // <ScreenHeaderBtn iconUrl={icons.menu2} dimensions={"100%"}></ScreenHeaderBtn>
                     <Button
                     title="Menu"
-                    color={COLORS.pitchBlack}
+                    color={COLORS.pitchBlack} 
+                    onPress={()=> Alert.alert("menu pressed")}
                     />
                 ),
             }}/>
