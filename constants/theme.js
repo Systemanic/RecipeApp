@@ -6,4 +6,5 @@ const COLORS = {
     pitchBlack: "black",
 };
 
-export { COLORS };
+
+export{COLORS};
