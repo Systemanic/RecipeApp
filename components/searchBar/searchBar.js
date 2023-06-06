@@ -5,7 +5,6 @@ import  styles  from './searchBar.style.js';
 import { MaterialIcons } from '@expo/vector-icons';
 
 
-
 const SearchBar = ({ onSearch }) => {
   const [searchText, setSearchText] = useState('');
   const [data, setData] = useState([
@@ -78,4 +77,5 @@ const SearchBar = ({ onSearch }) => {
     </View>
   );
 };
+
 export default SearchBar;
