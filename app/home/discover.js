@@ -1,25 +1,9 @@
-// import { View, Text, Button } from "react-native";
-// import { useRouter, Tabs} from "expo-router";
-// import { AntDesign } from '@expo/vector-icons';
-
-
-// const Discover = () => {
-//     const router = useRouter();
-//     return(
-//         <View style={{flex: 1,alignItems: "center", justifyContent: "center"}}> 
-//             <AntDesign name="search1" size={24} color="black" />
-//             <Text>Discover More!</Text>
-
-
-//             <Tabs.Screen options = {{title: "Discover", tabBarIcon: ()=> (<AntDesign name="search1" size={24} color="black" />)}}/> 
-//         </View>
-//     );
-// };
-
 // export default Discover;
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { AntDesign } from '@expo/vector-icons';
+import { View, Text, Button } from "react-native";
+import { useRouter, Tabs } from "expo-router";
 
 const Discover = () => {
   const [selectedTab, setSelectedTab] = useState("discover");
@@ -48,6 +32,5 @@ const Discover = () => {
     </View>
   );
 };
-
 export default Discover;
 

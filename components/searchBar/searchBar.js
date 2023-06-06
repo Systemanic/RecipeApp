@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, TextInput, Button } from 'react-native';
 import { icon } from 'react-native';
 
-const SearchBarWithFilters = ({ onSearch }) => {
+const SearchBar = ({ onSearch }) => {
   const [searchText, setSearchText] = useState('');
   const [selectedFilters, setSelectedFilters] = useState([]);
 
@@ -58,4 +58,4 @@ const SearchBarWithFilters = ({ onSearch }) => {
   );
 };
 
-export default searchBar;
+export default SearchBar;

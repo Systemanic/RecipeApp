@@ -12,10 +12,7 @@ const Community = () => {
 
             <Tabs.Screen options = {{title: "Community", tabBarIcon:()=> (<FontAwesome name="group" size={24} color="black" />) }}/>
         </View>
-    );
-};
+
 
 export default Community;
-
-
 
