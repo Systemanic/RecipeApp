@@ -1,7 +1,7 @@
 // export default Discover;
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
-import { AntDesign } from '@expo/vector-icons';
+import { AntDesign, Ionicons } from '@expo/vector-icons';
 import { useRouter, Tabs } from "expo-router";
 import { SearchBar } from '../../components';
 
@@ -15,20 +15,23 @@ const Discover = () => {
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <SearchBar />
+      <Tabs.Screen options={{
+        tabBarIcon: () => (<Ionicons name="ios-search-circle" size={30} color="black" />),
+      }}/>
       <TouchableOpacity
         onPress={() => handleTabPress("discover")}
         style={{ alignItems: "center" }}
       >
-        <AntDesign
+        {/* <AntDesign
           name={selectedTab === "discover" ? "search1" : "search1"}
           size={24}
           color={selectedTab === "discover" ? "blue" : "black"}
-        />
-        <Text
+        /> */}
+        {/* <Text
           style={{ color: selectedTab === "discover" ? "blue" : "black" }}
         >
           Discover More!
-        </Text>
+        </Text> */}
       </TouchableOpacity>
     </View>
   );

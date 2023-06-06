@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { View, Text, Button, Linking, Image, TextInput, ActivityIndicator, StyleSheet } from 'react-native';
+import { View, Text, Button, Linking, Image, TextInput, ActivityIndicator, StyleSheet, ScrollView } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import { useRouter, Tabs } from 'expo-router';
 import { fetchRecipesByIngredients } from '../../api';
+import { AntDesign } from '@expo/vector-icons';
 
 const PRESET_OPTIONS = {
-  carbohydrates: ['Rice', 'Pasta', 'Bread'],
+  carbohydrates: ['Rice', 'Pasta', 'Bread', 'Spaghetti'],
   proteins: ['Chicken', 'Beef', 'Fish'],
   starch: ['Potato', 'Sweet Potato', 'Corn'],
 };
@@ -50,78 +51,88 @@ const Suggestions = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Discover More!</Text>
-      <View style={styles.formContainer}>
-        <Text style={styles.label}>Carbohydrates:</Text>
-        <Picker
-          style={styles.picker}
-          selectedValue={carbohydrates}
-          onValueChange={(value) => setCarbohydrates(value)}
-        >
-          <Picker.Item label="Select Carbohydrates" value="" />
-          {PRESET_OPTIONS.carbohydrates.map((option, index) => (
-            <Picker.Item key={index} label={option} value={option} />
-          ))}
-        </Picker>
+    <ScrollView>
+      <Tabs.Screen options={{
+        tabBarIcon: () => (
+          <AntDesign name="find" size={24} color="black" />
+        ),
+        tabBarLabel: "New Recipe",
+        headerTitle: "Generate New Recipe",
+        headerTitleAlign: "center",
+      }}/>
 
-        <Text style={styles.label}>Proteins:</Text>
-        <Picker
-          style={styles.picker}
-          selectedValue={proteins}
-          onValueChange={(value) => setProteins(value)}
-        >
-          <Picker.Item label="Select Proteins" value="" />
-          {PRESET_OPTIONS.proteins.map((option, index) => (
-            <Picker.Item key={index} label={option} value={option} />
-          ))}
-        </Picker>
+      <View style={styles.container}>
+        <View style={styles.formContainer}>
+          <Text style={styles.label}>Carbohydrates:</Text>
+          <Picker
+            style={styles.picker}
+            selectedValue={carbohydrates}
+            onValueChange={(value) => setCarbohydrates(value)}
+          >
+            <Picker.Item label="Select Carbohydrates" value="" />
+            {PRESET_OPTIONS.carbohydrates.map((option, index) => (
+              <Picker.Item key={index} label={option} value={option} />
+            ))}
+          </Picker>
 
-        <Text style={styles.label}>Starch:</Text>
-        <Picker
-          style={styles.picker}
-          selectedValue={starch}
-          onValueChange={(value) => setStarch(value)}
-        >
-          <Picker.Item label="Select Starch" value="" />
-          {PRESET_OPTIONS.starch.map((option, index) => (
-            <Picker.Item key={index} label={option} value={option} />
-          ))}
-        </Picker>
+          <Text style={styles.label}>Proteins:</Text>
+          <Picker
+            style={styles.picker}
+            selectedValue={proteins}
+            onValueChange={(value) => setProteins(value)}
+          >
+            <Picker.Item label="Select Proteins" value="" />
+            {PRESET_OPTIONS.proteins.map((option, index) => (
+              <Picker.Item key={index} label={option} value={option} />
+            ))}
+          </Picker>
 
-        <TextInput
-          style={styles.input}
-          onChangeText={(text) => setOtherOptions(text)}
-          value={otherOptions}
-          placeholder="Other Options"
-        />
-      </View>
+          <Text style={styles.label}>Starch:</Text>
+          <Picker
+            style={styles.picker}
+            selectedValue={starch}
+            onValueChange={(value) => setStarch(value)}
+          >
+            <Picker.Item label="Select Starch" value="" />
+            {PRESET_OPTIONS.starch.map((option, index) => (
+              <Picker.Item key={index} label={option} value={option} />
+            ))}
+          </Picker>
 
-      <Button title="Generate Recipe" onPress={handleGenerateRecipe} />
-
-      {loading && <ActivityIndicator style={styles.loading} size="large" color="blue" />}
-
-      {suggestedRecipe !== '' && <Text style={styles.recipeText}>Suggested Recipe: {suggestedRecipe}</Text>}
-
-      {recipe && (
-        <View style={styles.recipeContainer}>
-          <View style={styles.recipeContent}>
-            <Image source={{ uri: recipe.image }} style={styles.recipeImage} />
-            <View style={styles.recipeDetails}>
-              <Text style={styles.recipeText}>Ingredients:</Text>
-              {recipe.ingredients.map((ingredient, index) => (
-                <Text key={index} style={styles.recipeText}>
-                  {ingredient.text}
-                </Text>
-              ))}
-            </View>
-          </View>
-          <Button title="Open Recipe Source" onPress={handleOpenRecipeSource} />
+          <TextInput
+            style={styles.input}
+            onChangeText={(text) => setOtherOptions(text)}
+            value={otherOptions}
+            placeholder="Other Options"
+          />
         </View>
-      )}
 
-      <View style={styles.blankSpace} />
-    </View>
+        <Button title="Generate Recipe" onPress={handleGenerateRecipe} />
+
+        {loading && <ActivityIndicator style={styles.loading} size="large" color="blue" />}
+
+        {suggestedRecipe !== '' && <Text style={styles.recipeText}>Suggested Recipe: {suggestedRecipe}</Text>}
+
+        {recipe && (
+          <View style={styles.recipeContainer}>
+            <View style={styles.recipeContent}>
+              <Image source={{ uri: recipe.image }} style={styles.recipeImage} />
+              <View style={styles.recipeDetails}>
+                <Text style={styles.recipeText}>Ingredients:</Text>
+                {recipe.ingredients.map((ingredient, index) => (
+                  <Text key={index} style={styles.recipeText}>
+                    {ingredient.text}
+                  </Text>
+                ))}
+              </View>
+            </View>
+            <Button title="Open Recipe Source" onPress={handleOpenRecipeSource} />
+          </View>
+        )}
+
+        <View style={styles.blankSpace} />
+      </View>
+    </ScrollView>
   );
 };
 

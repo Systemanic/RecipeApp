@@ -15,6 +15,9 @@
     "owner": "ikowalski",
     "android": {
       "package": "com.ikowalski.recipeapp"
+    },
+    "ios": {
+      "bundleIdentifier": "com.ikowalski.recipeapp"
     }
   }
 }
