@@ -2,24 +2,43 @@ import { StyleSheet } from "react-native";
 import { COLORS } from "../../constants/theme";
 
 const styles = StyleSheet.create({
-    textInput:{
-        backgroundColor: "white",
-        textAlign: "center",
-        fontSize: 15,
-        height: 37,
-        width: 320,
-        // Above values are determined by the app design (Refer to design team)
-        borderRadius: 10,
-        padding: 10,
+    container: {
+      flex: 1,
+      padding: 10,
     },
-
-    container:{
-        // Non ScrollView Containers
-        flex: 1,
-        backgroundColor: COLORS.cream,
-        padding: 10,
+    searchContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      backgroundColor: '#ffd700',
+      paddingVertical: 5,
+      paddingHorizontal: 10,
     },
-
-})
+    searchInput: {
+      flex: 1,
+      height: 40,
+      borderColor: 'gray',
+      borderWidth: 1,
+      paddingHorizontal: 10,
+      marginRight: 10,
+      backgroundColor: 'lightyellow',
+    },
+    searchIconContainer: {
+      width: 40,
+      height: 40,
+      backgroundColor: '#FF6F00',
+      alignItems: 'center',
+      justifyContent: 'center',
+      marginLeft: 10,
+    },
+    filterContainer: {
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      marginTop: 10,
+    },
+    filterButton: {
+      marginRight: 10,
+      marginBottom: 10,
+    }
+  });
 
 export default styles;
