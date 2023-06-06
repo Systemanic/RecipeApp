@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, Button, Linking, Image, Picker, TextInput, ActivityIndicator, StyleSheet } from 'react-native';
+import { View, Text, Button, Linking, Image, TextInput, ActivityIndicator, StyleSheet } from 'react-native';
+import { Picker } from '@react-native-picker/picker';
 import { useRouter, Tabs } from 'expo-router';
 import { fetchRecipesByIngredients } from '../../api';
 

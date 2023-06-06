@@ -1,12 +1,12 @@
 import { View, Text, Button, TouchableOpacity } from "react-native";
-import { useRouter, useSearchParams, Stack} from "expo-router";
+import { useRouter, useGlobalSearchParams, Stack} from "expo-router";
 import { Fontisto } from '@expo/vector-icons';
 
 // [profile] allows you to dynamically change the name of a page based on data passed through the useSearchParams function
 
 const Profile = () => {
   const router = useRouter();
-  const { name, profile } = useSearchParams();
+  const { name, profile } = useGlobalSearchParams();
     return(
         <View style={{flex: 1,alignItems: "center", justifyContent: "center"}}>
             <Stack.Screen options={{title: `${profile}'s Profile`, headerRight: () => (
